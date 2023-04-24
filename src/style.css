@@ -2,3 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+	color: #444;
+	font-family: sans-serif;
+	font-size: 18px;
+	line-height: 1.6;
+	margin: 40px auto;
+	max-width: 768px;
+	padding: 0 10px;
+  text-align: center;
+}
+
+h1, h2, h3 {
+	line-height: 1.2;
+}
+
+button {
+  background-color: gray;
+  border-radius: 2em;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
