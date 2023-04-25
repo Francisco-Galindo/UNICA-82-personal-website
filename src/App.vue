@@ -1,22 +1,24 @@
 <script setup>
 // import HelloWorld from './components/HelloWorld.vue'
 import Proyecto from './components/Proyecto.vue'
-
+import About from './components/About.vue';
 
 </script>
 
 <template>
   <header>
-    <h1 class="text-3xl font-bold">Francisco Galindo</h1>
+    <h1 class="text-3xl font-bold text-white">Francisco Galindo</h1>
   </header>
 
   <hr>
   <nav>
-    <button>About</button>
-    <button>Proyectos</button>
+    <button class="bg-blue rounded-md text-white pl-2 pr-2">About</button>
+    <button class="bg-blue rounded-md text-white pl-2 pr-2">Proyectos</button>
   </nav>
 
-  <div>
+  <div class="text-white">
+    <About>
+    </About>
     <Proyecto
       :titulo="'Mi proyecto'">
 
@@ -53,7 +55,7 @@ import Proyecto from './components/Proyecto.vue'
   </div>
 
   <footer>
-    <div>Lol</div>
+    <div>Footer chido</div>
   </footer>
 
 </template>

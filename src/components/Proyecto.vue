@@ -8,9 +8,9 @@ defineProps({
 </script>
 
 <template>
-  <div class="proyecto-container mt-4">
+  <div class="proyecto-container mt-8">
 
-    <h1 class="font-extrabold">{{ titulo }}</h1>
+    <h1 class="text-3xl font-extrabold">{{ titulo }}</h1>
 
     <div class="mt-8">
       <slot name="imagenes"></slot>
