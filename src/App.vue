@@ -1,7 +1,10 @@
 <script setup>
 // import HelloWorld from './components/HelloWorld.vue'
-import Proyecto from './components/Proyecto.vue'
+import {ref} from 'vue';
+import Proyecto from './components/Proyecto.vue';
 import About from './components/About.vue';
+
+const vista = ref('about');
 
 </script>
 
@@ -12,46 +15,54 @@ import About from './components/About.vue';
 
   <hr>
   <nav>
-    <button class="bg-blue rounded-md text-white pl-2 pr-2">About</button>
-    <button class="bg-blue rounded-md text-white pl-2 pr-2">Proyectos</button>
+    <button @click="vista = 'about'"
+      v-bind:class="vista === 'about' ? 'bg-blue' : 'bg-brown-bright'"
+      class=" rounded-md text-white pl-2 pr-2">Sobre mí</button>
+    <button @click="vista = 'projects'"
+      v-bind:class="vista === 'projects' ? 'bg-blue' : 'bg-brown-bright'"
+      class="bg-blue rounded-md text-white pl-2 pr-2">Proyectos</button>
   </nav>
 
   <div class="text-white">
-    <About>
-    </About>
-    <Proyecto
-      :titulo="'Mi proyecto'">
+    <template v-if="vista === 'about'">
+      <About>
+      </About>
+    </template>
+    <template v-else>
+      <Proyecto
+      :titulo="'Mi proyecto'" :proj-url="'https://github.com'">
 
       <template v-slot:imagenes>
-        <img class="max-w-xs m-auto" src="https://wallpaperaccess.com/full/275904.jpg" alt="">
+        <img src="https://wallpaperaccess.com/full/275904.jpg" alt="">
       </template>
 
       <template v-slot:cuerpo>
         <p>
-         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error quo
-         assumenda ipsa nihil architecto sed voluptatum illum explicabo,
-         officiis deleniti nesciunt quibusdam ut. Pariatur quod, autem
-         voluptates tempora amet blanditiis!
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error quo
+        assumenda ipsa nihil architecto sed voluptatum illum explicabo,
+        officiis deleniti nesciunt quibusdam ut. Pariatur quod, autem
+        voluptates tempora amet blanditiis!
         </p>
       </template>
-    </Proyecto>
+      </Proyecto>
 
-    <Proyecto
-      :titulo="'Otro proyecto'">
+      <Proyecto
+      :titulo="'Otro proyecto'" :proj-url="'https://github.com'">
 
       <template v-slot:imagenes>
-        <img class="max-w-xs m-auto" src="https://www.lifewithcats.tv/wp-content/uploads/2017/01/Screen-Shot-2017-01-26-at-5.49.55-PM.png" alt="">
+        <img src="https://www.lifewithcats.tv/wp-content/uploads/2017/01/Screen-Shot-2017-01-26-at-5.49.55-PM.png" alt="">
       </template>
 
       <template v-slot:cuerpo>
         <p>
-          Dolor laborum sint voluptate sunt quas, temporibus amet, quae.
-          Cumque harum ratione dicta dignissimos nesciunt Reprehenderit
-          perferendis possimus quod neque incidunt Quae facere ipsa molestias
-          fugit hic porro. Repellat vitae.
+        Dolor laborum sint voluptate sunt quas, temporibus amet, quae.
+        Cumque harum ratione dicta dignissimos nesciunt Reprehenderit
+        perferendis possimus quod neque incidunt Quae facere ipsa molestias
+        fugit hic porro. Repellat vitae.
         </p>
       </template>
-    </Proyecto>
+      </Proyecto>
+    </template>
   </div>
 
   <footer>
