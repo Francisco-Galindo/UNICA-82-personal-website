@@ -4,6 +4,7 @@
 defineProps({
     titulo: Function,
     imgUrl: String,
+    projUrl: String,
 })
 </script>
 
@@ -12,7 +13,7 @@ defineProps({
 
     <h1 class="text-3xl font-extrabold">{{ titulo }}</h1>
 
-    <div class="mt-8">
+    <div class="mt-8 max-w-xs m-auto">
       <slot name="imagenes"></slot>
     </div>
 
@@ -20,6 +21,10 @@ defineProps({
       <slot name="cuerpo"></slot>
     </div>
   </div>
+
+  <a :href="projUrl">
+    <button class="rounded-md pl-2 pr-2 bg-blue mt-4">Saber más</button>
+  </a>
 </template>
 
 <style scoped>
